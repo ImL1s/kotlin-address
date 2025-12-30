@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="io.github.iml1s.address.Bech32Test" tests="9" skipped="0" failures="0" errors="0" timestamp="2025-12-30T07:12:21.173Z" hostname="ImL1sdeMacBook-Pro.local" time="0.09">
+  <properties/>
+  <testcase name="testBip350ValidBech32m" classname="io.github.iml1s.address.Bech32Test" time="0.061"/>
+  <testcase name="testBech32Decode" classname="io.github.iml1s.address.Bech32Test" time="0.001"/>
+  <testcase name="testBip173ValidAddresses" classname="io.github.iml1s.address.Bech32Test" time="0.004"/>
+  <testcase name="testBech32Encode" classname="io.github.iml1s.address.Bech32Test" time="0.012"/>
+  <testcase name="testBip350TaprootAddresses" classname="io.github.iml1s.address.Bech32Test" time="0.001"/>
+  <testcase name="testTaprootAddressRoundTrip" classname="io.github.iml1s.address.Bech32Test" time="0.001"/>
+  <testcase name="testSegwitAddressRoundTrip" classname="io.github.iml1s.address.Bech32Test" time="0.0"/>
+  <testcase name="testBech32mEncode" classname="io.github.iml1s.address.Bech32Test" time="0.004"/>
+  <testcase name="testBip173InvalidAddresses" classname="io.github.iml1s.address.Bech32Test" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

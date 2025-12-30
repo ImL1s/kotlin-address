@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="io.github.iml1s.address.DerivationPathTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2025-12-30T07:12:21.265Z" hostname="ImL1sdeMacBook-Pro.local" time="0.051">
+  <properties/>
+  <testcase name="testNextAddress" classname="io.github.iml1s.address.DerivationPathTest" time="0.001"/>
+  <testcase name="testToPathString" classname="io.github.iml1s.address.DerivationPathTest" time="0.023"/>
+  <testcase name="testChangeAddress" classname="io.github.iml1s.address.DerivationPathTest" time="0.0"/>
+  <testcase name="testGetAddressType" classname="io.github.iml1s.address.DerivationPathTest" time="0.001"/>
+  <testcase name="testInvalidPathReturnsNull" classname="io.github.iml1s.address.DerivationPathTest" time="0.006"/>
+  <testcase name="testParseBIP44Path" classname="io.github.iml1s.address.DerivationPathTest" time="0.015"/>
+  <testcase name="testParseBIP84Path" classname="io.github.iml1s.address.DerivationPathTest" time="0.001"/>
+  <testcase name="testEthereumPath" classname="io.github.iml1s.address.DerivationPathTest" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

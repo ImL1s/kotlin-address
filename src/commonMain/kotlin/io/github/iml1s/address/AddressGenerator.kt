@@ -124,9 +124,12 @@ object AddressGenerator {
     /**
      * HASH160 = RIPEMD160(SHA256(data))
      */
+    /**
+     * HASH160 = RIPEMD160(SHA256(data))
+     */
     private fun hash160(data: ByteArray): ByteArray {
-        val sha256 = platformSha256(data)
-        return platformRipemd160(sha256)
+        val sha256 = org.kotlincrypto.hash.sha2.SHA256().digest(data)
+        return io.github.iml1s.crypto.Ripemd160.hash(sha256)
     }
 
     /**
@@ -140,7 +143,3 @@ object AddressGenerator {
     }
 }
 
-/**
- * 平台特定的 RIPEMD160 實現
- */
-internal expect fun platformRipemd160(data: ByteArray): ByteArray

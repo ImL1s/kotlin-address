@@ -160,11 +160,7 @@ object Base58 {
      * 平台特定的 SHA256
      */
     private fun sha256(data: ByteArray): ByteArray {
-        return platformSha256(data)
+        return org.kotlincrypto.hash.sha2.SHA256().digest(data)
     }
 }
 
-/**
- * 平台特定的 SHA256 實現
- */
-internal expect fun platformSha256(data: ByteArray): ByteArray

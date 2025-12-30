@@ -79,7 +79,7 @@ object EthereumAddress {
      * 平台特定的 Keccak256 實現
      */
     private fun keccak256(data: ByteArray): ByteArray {
-        return platformKeccak256(data)
+        return io.github.iml1s.crypto.Keccak256.hash(data)
     }
 
     private fun ByteArray.toHexString(): String {
@@ -89,7 +89,3 @@ object EthereumAddress {
     }
 }
 
-/**
- * 平台特定的 Keccak256 實現
- */
-internal expect fun platformKeccak256(data: ByteArray): ByteArray
