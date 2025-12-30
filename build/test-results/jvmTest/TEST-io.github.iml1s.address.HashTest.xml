@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="io.github.iml1s.address.HashTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2025-12-30T19:04:21.902Z" hostname="WIN_DESKTOP" time="0.001">
+  <properties/>
+  <testcase name="testRipemd160[jvm]" classname="io.github.iml1s.address.HashTest" time="0.0"/>
+  <testcase name="testBip84PubKeyHash[jvm]" classname="io.github.iml1s.address.HashTest" time="0.001"/>
+  <testcase name="testSha256[jvm]" classname="io.github.iml1s.address.HashTest" time="0.0"/>
+  <system-out><![CDATA[DEBUG: PubKey hex input: 0330d54fd0dd420a6e5f8d3624f5f3ba96190b89f338e2949c8c3c14e0ac16168f
+DEBUG: PubKey size: 33
+DEBUG: PubKey bytes content: 03 30 d5 4f d0 dd 42 0a 6e 5f 8d 36 24 f5 f3 ba 96 19 0b 89 f3 38 e2 94 9c 8c 3c 14 e0 ac 16 16 8f
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

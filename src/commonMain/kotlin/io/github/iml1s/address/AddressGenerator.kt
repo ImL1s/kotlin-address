@@ -132,14 +132,22 @@ object AddressGenerator {
         return io.github.iml1s.crypto.Ripemd160.hash(sha256)
     }
 
-    /**
-     * Taproot tweak（簡化版本）
-     * 完整實現需要 BIP340 tagged hash
-     */
     private fun taprootTweak(xOnlyPubKey: ByteArray): ByteArray {
-        // 簡化實現：暫時返回原始公鑰
-        // TODO: 實現完整的 taproot tweak (BIP341)
-        return xOnlyPubKey
+        val pxBig = io.github.iml1s.crypto.Secp256k1Pure.BigInteger.fromByteArray(xOnlyPubKey)
+        
+        // P = lift_x(x)
+        val pPoint = io.github.iml1s.crypto.Secp256k1Pure.liftX(pxBig)
+        
+        // h = tagged_hash("TapTweak", P_x) for BIP-86 (no script root)
+        val hBytes = io.github.iml1s.crypto.Secp256k1Pure.taggedHash("TapTweak", xOnlyPubKey)
+        val hBig = io.github.iml1s.crypto.Secp256k1Pure.BigInteger.fromByteArray(hBytes)
+        
+        // Q = P + hG
+        val hG = io.github.iml1s.crypto.Secp256k1Pure.scalarMultiplyG(hBig)
+        val qPoint = io.github.iml1s.crypto.Secp256k1Pure.addPoints(pPoint, hG)
+        
+        // Return x-coordinate of Q
+        return qPoint.first.toByteArray32()
     }
 }
 

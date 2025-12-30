@@ -107,10 +107,14 @@ object Base58 {
      * @return 編碼後的字串
      */
     fun encodeCheck(version: Byte, payload: ByteArray): String {
-        val data = ByteArray(1 + payload.size)
-        data[0] = version
-        payload.copyInto(data, 1)
+        return encodeCheck(byteArrayOf(version), payload)
+    }
 
+    /**
+     * Base58Check 編碼（包含多位元組版本）
+     */
+    fun encodeCheck(version: ByteArray, payload: ByteArray): String {
+        val data = version + payload
         val checksum = doubleSha256(data).sliceArray(0 until 4)
         return encode(data + checksum)
     }
@@ -122,8 +126,16 @@ object Base58 {
      * @return Pair(version, payload) 或 null
      */
     fun decodeCheck(input: String): Pair<Byte, ByteArray>? {
+        val decoded = decodeCheck(input, 1) ?: return null
+        return Pair(decoded.first[0], decoded.second)
+    }
+
+    /**
+     * Base58Check 解碼（指定版本位元組長度）
+     */
+    fun decodeCheck(input: String, versionSize: Int): Pair<ByteArray, ByteArray>? {
         val decoded = decode(input) ?: return null
-        if (decoded.size < 5) return null
+        if (decoded.size < versionSize + 4) return null
 
         val data = decoded.sliceArray(0 until decoded.size - 4)
         val checksum = decoded.sliceArray(decoded.size - 4 until decoded.size)
@@ -131,8 +143,8 @@ object Base58 {
 
         if (!checksum.contentEquals(expectedChecksum)) return null
 
-        val version = data[0]
-        val payload = data.sliceArray(1 until data.size)
+        val version = data.sliceArray(0 until versionSize)
+        val payload = data.sliceArray(versionSize until data.size)
 
         return Pair(version, payload)
     }
@@ -160,7 +172,7 @@ object Base58 {
      * 平台特定的 SHA256
      */
     private fun sha256(data: ByteArray): ByteArray {
-        return org.kotlincrypto.hash.sha2.SHA256().digest(data)
+        return io.github.iml1s.crypto.Secp256k1Pure.sha256(data)
     }
 }
 

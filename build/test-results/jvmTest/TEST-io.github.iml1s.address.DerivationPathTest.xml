@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="io.github.iml1s.address.DerivationPathTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2025-12-30T19:04:15.269Z" hostname="WIN_DESKTOP" time="0.015">
+  <properties/>
+  <testcase name="testNextAddress[jvm]" classname="io.github.iml1s.address.DerivationPathTest" time="0.002"/>
+  <testcase name="testToPathString[jvm]" classname="io.github.iml1s.address.DerivationPathTest" time="0.005"/>
+  <testcase name="testChangeAddress[jvm]" classname="io.github.iml1s.address.DerivationPathTest" time="0.0"/>
+  <testcase name="testGetAddressType[jvm]" classname="io.github.iml1s.address.DerivationPathTest" time="0.002"/>
+  <testcase name="testInvalidPathReturnsNull[jvm]" classname="io.github.iml1s.address.DerivationPathTest" time="0.002"/>
+  <testcase name="testParseBIP44Path[jvm]" classname="io.github.iml1s.address.DerivationPathTest" time="0.003"/>
+  <testcase name="testParseBIP84Path[jvm]" classname="io.github.iml1s.address.DerivationPathTest" time="0.0"/>
+  <testcase name="testEthereumPath[jvm]" classname="io.github.iml1s.address.DerivationPathTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
