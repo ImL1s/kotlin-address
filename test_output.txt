@@ -21,8 +21,8 @@ iosArm64, iosSimulatorArm64, iosX64, watchosArm64, watchosSimulatorArm64, watcho
 To hide this message, add 'kotlin.native.ignoreDisabledTargets=true' to the Gradle properties.
 
 
-> Task :kotlin-crypto-pure:checkKotlinGradlePluginConfigurationErrors SKIPPED
 > Task :checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :kotlin-crypto-pure:checkKotlinGradlePluginConfigurationErrors SKIPPED
 > Task :jvmProcessResources NO-SOURCE
 > Task :jvmTestProcessResources NO-SOURCE
 > Task :kotlin-crypto-pure:compileKotlinJvm UP-TO-DATE
@@ -36,5 +36,5 @@ To hide this message, add 'kotlin.native.ignoreDisabledTargets=true' to the Grad
 > Task :jvmTestClasses
 > Task :jvmTest
 
-BUILD SUCCESSFUL in 14s
+BUILD SUCCESSFUL in 27s
 6 actionable tasks: 2 executed, 4 up-to-date
