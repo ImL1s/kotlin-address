@@ -4,6 +4,9 @@ plugins {
     `maven-publish`
 }
 
+group = "io.github.iml1s"
+version = "1.0.0"
+
 kotlin {
     androidTarget {
         compilerOptions {
@@ -37,7 +40,7 @@ kotlin {
     sourceSets {
         commonMain.dependencies {
             implementation("org.jetbrains.kotlin:kotlin-stdlib")
-            implementation("io.github.iml1s:kotlin-crypto-pure")
+            implementation(libs.kotlin.crypto.pure)
         }
         commonTest.dependencies {
             implementation(kotlin("test"))
