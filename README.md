@@ -1,80 +1,59 @@
 # kotlin-address
 
 <p align="center">
-  <img src="../docs/images/kmp_crypto_banner.png" alt="kotlin-address" width="100%">
+  <img src="./docs/images/hero.png" alt="kotlin-address Hero" width="100%">
 </p>
 
 <p align="center">
+  <a href="https://jitpack.io/#ImL1s/kotlin-address"><img src="https://jitpack.io/v/ImL1s/kotlin-address.svg" alt="JitPack"></a>
   <a href="#"><img src="https://img.shields.io/badge/kotlin-2.1.0-blue.svg?logo=kotlin" alt="Kotlin"></a>
-  <a href="#"><img src="https://img.shields.io/badge/multiplatform-android%20%7C%20ios%20%7C%20watchOS%20%7C%20JVM-orange" alt="Multiplatform"></a>
-  <a href="LICENSE"><img src="https://img.shields.io/badge/license-Apache%202.0-blue.svg" alt="License"></a>
+  <a href="#"><img src="https://img.shields.io/badge/Platform-Android%20%7C%20iOS%20%7C%20watchOS%20%7C%20JVM-orange" alt="Platform"></a>
+  <a href="#"><img src="https://img.shields.io/badge/WatchOS-Supported-green?style=for-the-badge&logo=apple" alt="WatchOS Supported"></a>
 </p>
 
 <p align="center">
-  <strong>🏠 Pure Kotlin Multiplatform address generation for cryptocurrency wallets.</strong>
+  <strong>🌐 Unified Blockchain Address Handling for Kotlin Multiplatform.</strong>
 </p>
+
+Pure Kotlin library for robust blockchain address parsing, validation, and conversion across multiple ecosystems.
+
+---
+
+## 🏗️ Architecture
+
+```mermaid
+graph TD
+    subgraph "Address Parsing Component"
+        A[Raw String Input] --> B{Address Parser}
+        B -->|Identify| C[Address Type]
+    end
+
+    subgraph "Validation & Conversion"
+        C --> D{Validator}
+        D -->|Valid| E[Address Object]
+        D -->|Invalid| F[Error Handling]
+        
+        E --> G[Bech32 / Base58 Decoding]
+        G --> H[Internal Byte Data]
+    end
+
+    subgraph "Target Encoding"
+        H --> I{Encoder}
+        I -->|Bitcoin| J[P2WPKH / P2TR]
+        I -->|Ethereum| K[Checksum Address]
+        I -->|Solana| L[Base58 Address]
+    end
+```
 
 ---
 
 ## ✨ Features
 
-| Feature | Description |
-|---------|-------------|
-| **BIP44** | Legacy P2PKH addresses (`1...`) |
-| **BIP49** | Nested SegWit P2SH-P2WPKH (`3...`) |
-| **BIP84** | Native SegWit P2WPKH (`bc1q...`) |
-| **BIP86** | Taproot P2TR (`bc1p...`) |
-| **Bech32/Bech32m** | BIP173/350 compliant encoding |
-| **Base58Check** | Legacy address encoding |
-| **Ethereum** | EIP-55 checksum addresses |
-| **Multi-network** | Mainnet, Testnet, Regtest |
-
----
-
-## 🚀 Quick Start
-
-```kotlin
-import io.github.iml1s.address.*
-
-// Generate Bitcoin addresses from public key
-val pubKey: ByteArray = ... // 33-byte compressed public key
-
-// BIP84 Native SegWit (recommended)
-val segwitAddress = AddressGenerator.generateP2WPKH(pubKey)
-// Result: "bc1q..."
-
-// BIP86 Taproot
-val taprootAddress = AddressGenerator.generateP2TR(pubKey)
-// Result: "bc1p..."
-
-// BIP44 Legacy
-val legacyAddress = AddressGenerator.generateP2PKH(pubKey)
-// Result: "1..."
-
-// Ethereum address
-val ethPubKey: ByteArray = ... // 65-byte uncompressed public key
-val ethAddress = EthereumAddress.fromPublicKey(ethPubKey)
-// Result: "0x..."
-```
-
-### Derivation Paths
-
-```kotlin
-// BIP44 Bitcoin
-val bip44 = DerivationPath.bip44Bitcoin(account = 0, index = 0)
-println(bip44.toPathString()) // "m/44'/0'/0'/0/0"
-
-// BIP84 Native SegWit
-val bip84 = DerivationPath.bip84Bitcoin(account = 0, index = 5)
-println(bip84.toPathString()) // "m/84'/0'/0'/0/5"
-
-// BIP44 Ethereum
-val ethPath = DerivationPath.bip44Ethereum()
-println(ethPath.toPathString()) // "m/44'/60'/0'/0/0"
-
-// Parse from string
-val parsed = DerivationPath.parse("m/84'/0'/0'/0/10")
-```
+- **Multi-Chain Support**: Bitcoin (SegWit, Taproot), Ethereum (EIP-55), Solana, and more.
+- **Deep Validation**: Checksum verification, prefix matching, and length validation.
+- **Bech32/Bech32m**: Native support for BIP173 and BIP350.
+- **Base58Check**: Legacy address support with robust checksumming.
+- **Pure Kotlin**: 100% Kotlin code, perfect for KMP and WatchOS.
 
 ---
 
@@ -82,21 +61,27 @@ val parsed = DerivationPath.parse("m/84'/0'/0'/0/10")
 
 ```kotlin
 // build.gradle.kts
-kotlin {
-    sourceSets {
-        commonMain.dependencies {
-            implementation("com.github.iml1s:kotlin-address:1.0.0")
-        }
-    }
+implementation("com.github.ImL1s:kotlin-address:0.3.0-watchos")
+```
+
+## 🚀 Usage
+
+### Parse and Validate Bitcoin Address
+```kotlin
+val address = BitcoinAddress.from("bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh")
+if (address.isValid) {
+    println("Type: ${address.type}") // P2WPKH
+    println("PubKey Hash: ${address.hash.toHex()}")
 }
+```
+
+### Ethereum Checksum Address
+```kotlin
+val ethAddr = EthereumAddress("0x742d35cc6634c0532925a3b844bc454e4438f44e")
+println(ethAddr.toChecksumAddress())
 ```
 
 ---
 
 ## 📄 License
-
-```
-Copyright 2024 ImL1s
-
-Licensed under the Apache License, Version 2.0
-```
+MIT License
