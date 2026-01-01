@@ -38,19 +38,27 @@ kotlin {
     }
 
     sourceSets {
-        commonMain.dependencies {
-            implementation("org.jetbrains.kotlin:kotlin-stdlib")
-            implementation(project(":modules:kotlin-crypto-pure"))
+        val commonMain by getting {
+            dependencies {
+                implementation("org.jetbrains.kotlin:kotlin-stdlib")
+                implementation(project(":modules:kotlin-crypto-pure"))
+            }
         }
         commonTest.dependencies {
             implementation(kotlin("test"))
         }
         androidMain.dependencies {
         }
-        iosMain.dependencies {
-        }
-        watchosMain.dependencies {
-        }
+        val iosMain by creating { dependsOn(commonMain) }
+        val iosX64Main by getting { dependsOn(iosMain) }
+        val iosArm64Main by getting { dependsOn(iosMain) }
+        val iosSimulatorArm64Main by getting { dependsOn(iosMain) }
+
+        val watchosMain by creating { dependsOn(commonMain) }
+        val watchosArm64Main by getting { dependsOn(watchosMain) }
+        val watchosX64Main by getting { dependsOn(watchosMain) }
+        val watchosSimulatorArm64Main by getting { dependsOn(watchosMain) }
+
         jvmMain.dependencies {
         }
     }
