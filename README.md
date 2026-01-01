@@ -55,6 +55,20 @@ graph TD
 - **Base58Check**: Legacy address support with robust checksumming.
 - **Pure Kotlin**: 100% Kotlin code, perfect for KMP and WatchOS.
 
+### Low-Level Encoding
+
+You can usage `Base58` and `Bech32` directly for custom encoding needs:
+
+```kotlin
+// Base58Check
+val encoded = Base58.encodeCheck(version = 0x00, payload = hash160)
+val decoded = Base58.decodeCheck("1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa")
+
+// Bech32 (SegWit)
+val bech32Address = Bech32.encodeSegwit("bc", 0, witnessProgram)
+val decodedBech32 = Bech32.decode("bc1q...")
+```
+
 ---
 
 ## 📦 Installation
