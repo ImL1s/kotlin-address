@@ -47,6 +47,28 @@ graph TD
 
 ---
 
+## 🏗️ Address Derivation Flow
+
+```mermaid
+graph TD
+    PK[Public Key] --> H160[Hash160]
+    PK -- x-only --> TR[Taproot Script]
+    
+    subgraph "Encoding Layer"
+        H160 --> B58[Base58Check]
+        H160 --> B32[Bech32]
+        H160 --> B32M[Bech32m]
+        TR --> B32M
+    end
+    
+    B58 --> L[Legacy Address / 1...]
+    B58 --> N[Nested SegWit / 3...]
+    B32 --> S[Native SegWit / bc1q...]
+    B32M --> T[Taproot / bc1p...]
+```
+
+---
+
 ## ✨ Features
 
 - **Multi-Chain Support**: Bitcoin (SegWit, Taproot), Ethereum (EIP-55), Solana, and more.
