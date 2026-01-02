@@ -1,7 +1,11 @@
-build/
-.gradle/
-.idea/
+
+# Standard Kotlin/Gradle Ignores
+.gradle
+/build
+/.idea
+.DS_Store
+/local.properties
 *.iml
-test_output.txt
-executionHistory.bin
-file-system.probe
+.cxx
+/captures
+.externalNativeBuild
