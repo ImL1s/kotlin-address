@@ -52,7 +52,7 @@ object Base58 {
             encoded[outputStart] = ALPHABET[0]
         }
 
-        return String(encoded, outputStart, encoded.size - outputStart)
+        return encoded.concatToString(outputStart, encoded.size)
     }
 
     /**
