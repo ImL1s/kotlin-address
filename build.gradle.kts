@@ -12,7 +12,7 @@ kotlin {
         compilerOptions {
             jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17)
         }
-        publishLibraryVariants("release")
+        publishLibraryVariants("release", "debug")
     }
 
     jvm()
@@ -73,7 +73,7 @@ android {
 }
 
 tasks.configureEach {
-    if (name.contains("lintVitalAnalyzeRelease")) {
+    if (name.contains("lintVitalAnalyzeRelease") || name.contains("generateDebugAndroidTestLintModel")) {
         enabled = false
     }
 }
