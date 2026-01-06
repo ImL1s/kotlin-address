@@ -1,0 +1,55 @@
+build	Build with Gradle	﻿2026-01-02T03:46:36.2595368Z ##[group]Run cd kotlin-address
+build	Build with Gradle	2026-01-02T03:46:36.2595747Z [36;1mcd kotlin-address[0m
+build	Build with Gradle	2026-01-02T03:46:36.2595982Z [36;1mchmod +x gradlew[0m
+build	Build with Gradle	2026-01-02T03:46:36.2596206Z [36;1m./gradlew build[0m
+build	Build with Gradle	2026-01-02T03:46:36.2632543Z shell: /usr/bin/bash -e {0}
+build	Build with Gradle	2026-01-02T03:46:36.2632813Z env:
+build	Build with Gradle	2026-01-02T03:46:36.2633236Z   GITHUB_TOKEN: ***
+build	Build with Gradle	2026-01-02T03:46:36.2633440Z   GITHUB_ACTOR: ImL1s
+build	Build with Gradle	2026-01-02T03:46:36.2633735Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.17-10/x64
+build	Build with Gradle	2026-01-02T03:46:36.2634192Z   JAVA_HOME_17_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.17-10/x64
+build	Build with Gradle	2026-01-02T03:46:36.2634564Z   GRADLE_BUILD_ACTION_SETUP_COMPLETED: true
+build	Build with Gradle	2026-01-02T03:46:36.2634853Z   GRADLE_BUILD_ACTION_CACHE_RESTORED: true
+build	Build with Gradle	2026-01-02T03:46:36.2635091Z ##[endgroup]
+build	Build with Gradle	2026-01-02T03:46:36.6207810Z Downloading https://services.gradle.org/distributions/gradle-8.13-all.zip
+build	Build with Gradle	2026-01-02T03:46:39.3584385Z ......................10%......................20%......................30%......................40%......................50%......................60%......................70%.......................80%......................90%......................100%
+build	Build with Gradle	2026-01-02T03:46:43.0998769Z 
+build	Build with Gradle	2026-01-02T03:46:43.1000780Z Welcome to Gradle 8.13!
+build	Build with Gradle	2026-01-02T03:46:43.1001100Z 
+build	Build with Gradle	2026-01-02T03:46:43.1001481Z Here are the highlights of this release:
+build	Build with Gradle	2026-01-02T03:46:43.1003671Z  - Daemon JVM auto-provisioning
+build	Build with Gradle	2026-01-02T03:46:43.1009362Z  - Enhancements for Scala plugin and JUnit testing
+build	Build with Gradle	2026-01-02T03:46:43.1010307Z  - Improvements for build authors and plugin developers
+build	Build with Gradle	2026-01-02T03:46:43.1010746Z 
+build	Build with Gradle	2026-01-02T03:46:43.1011088Z For more details see https://docs.gradle.org/8.13/release-notes.html
+build	Build with Gradle	2026-01-02T03:46:43.1011588Z 
+build	Build with Gradle	2026-01-02T03:46:43.1969945Z Starting a Gradle Daemon (subsequent builds will be faster)
+build	Build with Gradle	2026-01-02T03:47:08.7975053Z 
+build	Build with Gradle	2026-01-02T03:47:08.8037911Z > Configure project :kotlin-crypto-pure
+build	Build with Gradle	2026-01-02T03:47:08.8049704Z e: file:///home/runner/work/kotlin-address/kotlin-address/kotlin-crypto-pure/build.gradle.kts:2:11: Unresolved reference: libs
+build	Build with Gradle	2026-01-02T03:47:08.8051535Z e: file:///home/runner/work/kotlin-address/kotlin-address/kotlin-crypto-pure/build.gradle.kts:3:11: Unresolved reference: libs
+build	Build with Gradle	2026-01-02T03:47:08.8964311Z 
+build	Build with Gradle	2026-01-02T03:47:08.9009694Z FAILURE: Build failed with an exception.
+build	Build with Gradle	2026-01-02T03:47:08.9022919Z 
+build	Build with Gradle	2026-01-02T03:47:08.9049752Z * Where:
+build	Build with Gradle	2026-01-02T03:47:08.9050994Z Build file '/home/runner/work/kotlin-address/kotlin-address/kotlin-crypto-pure/build.gradle.kts' line: 2
+build	Build with Gradle	2026-01-02T03:47:08.9051670Z 
+build	Build with Gradle	2026-01-02T03:47:08.9051800Z * What went wrong:
+build	Build with Gradle	2026-01-02T03:47:08.9052106Z Script compilation errors:
+build	Build with Gradle	2026-01-02T03:47:08.9052413Z 
+build	Build with Gradle	2026-01-02T03:47:08.9052626Z   Line 2:     alias(libs.plugins.kotlin.multiplatform)
+build	Build with Gradle	2026-01-02T03:47:08.9053098Z                     ^ Unresolved reference: libs
+build	Build with Gradle	2026-01-02T03:47:08.9053438Z 
+build	Build with Gradle	2026-01-02T03:47:08.9053615Z   Line 3:     alias(libs.plugins.android.library)
+build	Build with Gradle	2026-01-02T03:47:08.9054034Z                     ^ Unresolved reference: libs
+build	Build with Gradle	2026-01-02T03:47:08.9054344Z 
+build	Build with Gradle	2026-01-02T03:47:08.9054442Z 2 errors
+build	Build with Gradle	2026-01-02T03:47:08.9054582Z 
+build	Build with Gradle	2026-01-02T03:47:08.9054682Z * Try:
+build	Build with Gradle	2026-01-02T03:47:08.9055405Z > Run with --stacktrace option to get the stack trace.
+build	Build with Gradle	2026-01-02T03:47:08.9055979Z > Run with --info or --debug option to get more log output.
+build	Build with Gradle	2026-01-02T03:47:08.9056460Z > Run with --scan to get full insights.
+build	Build with Gradle	2026-01-02T03:47:08.9056895Z > Get more help at https://help.gradle.org.
+build	Build with Gradle	2026-01-02T03:47:08.9057188Z 
+build	Build with Gradle	2026-01-02T03:47:08.9057329Z BUILD FAILED in 32s
+build	Build with Gradle	2026-01-02T03:47:09.2759896Z ##[error]Process completed with exit code 1.
