@@ -8,6 +8,8 @@ group = "io.github.iml1s"
 version = "1.3.0"
 
 kotlin {
+    applyDefaultHierarchyTemplate()
+    
     androidTarget {
         compilerOptions {
             jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17)
@@ -16,6 +18,8 @@ kotlin {
     }
 
     jvm()
+    macosX64()
+    macosArm64()
 
     listOf(
         iosX64(),
