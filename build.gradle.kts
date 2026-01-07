@@ -77,6 +77,7 @@ tasks.configureEach {
         name.contains("generateDebugAndroidTestLintModel") ||
         name.contains("lintReportDebug") || 
         name.contains("lintReportRelease") ||
+        name.contains("lintAnalyzeDebugUnitTest") ||
         name == "lintDebug") {
         enabled = false
     }
