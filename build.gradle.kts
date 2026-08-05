@@ -40,7 +40,7 @@ kotlin {
     sourceSets {
         commonMain.dependencies {
             implementation("org.jetbrains.kotlin:kotlin-stdlib")
-            implementation(libs.kotlin.crypto.pure)
+            implementation(project(":modules:kotlin-crypto-pure"))
         }
         commonTest.dependencies {
             implementation(kotlin("test"))
