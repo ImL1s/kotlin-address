@@ -15,6 +15,23 @@ class Base58Test {
     }
 
     @Test
+    fun encodeKeepsLeadingOnesForLeadingZeroBytes() {
+        // Official Bitcoin base58 vector: leading 0x00 + non-zero payload.
+        // Drives shipped Base58.encode (not a copy). copyOf() because encode mutates.
+        val official = "00eb15231dfceb60925886b67d065299925915aeb172c06647".hexToByteArray()
+        val officialEncoded = Base58.encode(official.copyOf())
+        assertTrue(officialEncoded.startsWith("1"), officialEncoded)
+        assertEquals("1NS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L", officialEncoded)
+        assertContentEquals(official, Base58.decode(officialEncoded))
+
+        val threeLeadingZeros = byteArrayOf(0, 0, 0, 1)
+        val encoded = Base58.encode(threeLeadingZeros.copyOf())
+        assertTrue(encoded.startsWith("111"), encoded)
+        assertEquals(3, encoded.takeWhile { it == '1' }.length)
+        assertContentEquals(threeLeadingZeros, Base58.decode(encoded))
+    }
+
+    @Test
     fun testDecode() {
         // Round trip
         val original = "The quick brown fox jumps over the lazy dog."

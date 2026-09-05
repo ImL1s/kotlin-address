@@ -87,5 +87,6 @@ println(ethAddr.toChecksumAddress())
 
 P1 fixes: Bech32 rejects mixed case (BIP-173) and invalid HRP / witness-program lengths. See [CHANGELOG](CHANGELOG.md). This is not a full API security certification.
 
-## 📄 License
-MIT License
+## License
+
+Apache License 2.0. See [LICENSE](LICENSE).
