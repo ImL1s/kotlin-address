@@ -41,11 +41,6 @@ object Base58 {
             }
         }
 
-        // 跳過結果中的前導零
-        while (outputStart < encoded.size && encoded[outputStart] == ALPHABET[0]) {
-            outputStart++
-        }
-
         // 保留原始前導零
         repeat(zeros) {
             outputStart--
