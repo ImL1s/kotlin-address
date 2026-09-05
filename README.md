@@ -61,7 +61,7 @@ graph TD
 
 ```kotlin
 // build.gradle.kts
-implementation("com.github.ImL1s:kotlin-address:0.3.0-watchos")
+implementation("com.github.ImL1s:kotlin-address:1.0.1")
 ```
 
 ## 🚀 Usage
@@ -82,6 +82,10 @@ println(ethAddr.toChecksumAddress())
 ```
 
 ---
+
+## Correctness (v1.0.1)
+
+P1 fixes: Bech32 rejects mixed case (BIP-173) and invalid HRP / witness-program lengths. See [CHANGELOG](CHANGELOG.md). This is not a full API security certification.
 
 ## 📄 License
 MIT License
