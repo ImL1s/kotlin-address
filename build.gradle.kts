@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "io.github.iml1s"
-version = "1.0.0"
+version = "1.0.1"
 
 kotlin {
     androidTarget {
@@ -40,7 +40,7 @@ kotlin {
     sourceSets {
         commonMain.dependencies {
             implementation("org.jetbrains.kotlin:kotlin-stdlib")
-            implementation(project(":modules:kotlin-crypto-pure"))
+            implementation("io.github.iml1s:kotlin-crypto-pure:1.0.0")
         }
         commonTest.dependencies {
             implementation(kotlin("test"))
